@@ -1,0 +1,11 @@
+Package: semper
+Type: Package
+Title: SEMPER: S.E.M., P.ower, E.ffect size, and R.eliability 
+Version: 0.3
+Date: 2017-07-24
+Author: Andreas M. Brandmaier
+Maintainer: Andreas M. Brandmaier <brandmaier@mpib-berlin.mpg.de>
+Description: Analytical and Monte Carlo approaches for statistical power, effect size, and reliability in SEM.
+License: GPL (>=3)
+Depends: parallel, MASS, OpenMx
+Suggests: plotrix, lattice
