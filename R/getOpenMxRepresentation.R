@@ -1,8 +1,10 @@
 
-getOpenMxRepresentation <- function(generic.model, name=NULL) {
-  return(toOpenMx(generic.model, name))
-}
-
+#' Create an OpenMx model from an sempower model abstraction}
+#'
+#' 
+#' @adescription  This function creates a lgcm object to be run in OpenMx
+#'
+#' @params generic.model A sempower model abstraction
 toOpenMx <- function(generic.model, name=NULL)
 {
   manifest.varname <- "X"
@@ -267,3 +269,7 @@ toOpenMx <- function(generic.model, name=NULL)
 }
 
 
+
+getOpenMxRepresentation <- function(generic.model, name=NULL) {
+  return(toOpenMx(generic.model, name))
+}

@@ -22,7 +22,7 @@ h0Model=h0Model,N = N, repetitions = repetitions)
  if (full.output) {
 return(simulation)
 	} else {
- return(estimatePower(simulation))
+ return(power(simulation))
 }
 
 }

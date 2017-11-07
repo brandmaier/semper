@@ -1,3 +1,11 @@
+#' Create a latent growth curve model
+#' @description This function creates a lgcm object representing a linear latent growth curve model
+#' @param timepoints Vector of time points of measurement occasions
+#' @param sample.size Number of cases
+#' @param residual.variance Residual variance or inverse of the precision of measurement
+#' @param slope.variance Individual differences in slopes
+#' @param intercept.variance Individual differences in intercept
+
 lgcm <- function(timepoints=0, intercept.variance=0, slope.variance=0,
                  residual.variance=0, 
                  intercept.slope.covariance = 0, sample.size = 0,
@@ -47,6 +55,10 @@ effectiveError <- function(lgcm)
   lgcm$residual.variance/( lgcm$sumtisq - eta*lgcm$sumti*lgcm$sumti)+ zeta
 }
 
+#' Reliability and Precision indices
+#' @description A set of indicators for study design efficiency. Effective error, Effective Curve Reliability, and Growth Rate Reliability.
+#' @param lgcm A \code{lgcm} object representing a linear latent grwoth curve model
+#' @aliases grr effectiveError
 ecr <- function(lgcm) 
 {
   return (lgcm$slope.variance / (lgcm$slope.variance+effective.error(lgcm)))

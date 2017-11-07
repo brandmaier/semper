@@ -1,15 +1,9 @@
-#
-# omxpower
-#
-# Power simulation of a likelihood ratio test between two
-# models given simulated data from a true model in R/OpenMx
-#
-#
-# author: Andreas Brandmaier
-#
-# example usage:
-#
-# Assume you have a H1 model that test whether a pretest and a posttest score
+#'
+#' Monte-Carlo power simulation
+#'
+#' Power simulation of a likelihood ratio test between two
+#' models given simulated data from a true model in R/OpenMx
+#' Assume you have a H1 model that test whether a pretest and a posttest score
 # mean are different in a sample. The corresponding H0 model states that
 # there is no difference between the scores, and therefore constitutes a
 # restricted and nested version of the H1 model. Given a true model that
@@ -17,9 +11,40 @@
 # and the power to detect this difference can be calculated given a
 # chosen sample size. Alternatively, the required sample size can be
 # calculated given a chosen power.
-#
-#
-#
+#'
+#'
+#' @param h0Model Model representing the null hypothesis
+#' @param h1Model Model representing the alternative hypothesis
+#' @param populationModel}{True population model used to generate data from.
+#' @param N Sample size. For RAM models, this is either (1) a scalar representing a fixed sample size, (2) a list with two items representing a minimum and a maximum for randomly drawn sample sizes (when sample size is the dependent variable), or (3) for multiple group models, this is a named list of sample sizes for the sub models where the names must match the submodels' names.
+#'
+#'@parampsim SimPower result object
+#'@paramprng Range for plotting p values
+#'@paramtarget.power If not null, draw a line to indicate sample size for a specified target power in a power curve plot.
+#'@paramlw line width for power curve
+#'@paramlty line type for power curve
+#'
+#' @seealso \code{\link{simPowerZeroRestriction}}
+#'
+#' @aliases simPower print.simPower plot.simPower
+#'
+#' @examples
+#' simPower(h0Model,h1Model, populationModel, N=c(20,100),repetitions=100, keepModels=F)
+#'
+#' plot(psim, prng=seq(0.4,0.95,0.05), target.power=NULL, lw=2, lty=1,
+#'                          xlab="sample size", ylab="statistical power",
+#'                           main="Monte Carlo Power Simulation", add=F,...)
+#'						   
+#' print(psim, ...)	
+#'
+#' @author: Andreas Brandmaier
+#'
+#' @detail:  Given a true model, data is repeatedely simulated
+#' and the power to detect this difference is calculated for a
+#' chosen sample size. Alternatively, the required sample size can be
+#' calculated for a chosen power.
+#' A simplified wrapper for the simulation of zero constraints is \code{\link{simPowerZeroRestriction}}.
+
 
 
 

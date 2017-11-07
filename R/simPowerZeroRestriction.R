@@ -1,8 +1,12 @@
+#' Simulate Power for a null hypothesis involving one or more zero-constraints.
+#' @description Monte-Carlo-simulate power for a given model to reject a null hypothesis involving one or more zero-constraints.
+#' @details 	This is a wrapper function to the generic \code{simpower} function to obtain power for a given model to reject a null hypothesis involving one or more zero-constraints by a Monte Carlo simulation.
+#' @param trueModel An OpenMx model representing the population model.
+#' @param restrictions A list of parameters to be restricted to zero under H0.
+#' @param N Sample size
+#' @param repetitions The number of Monte-Carlo-trials.
+#' @param keepModels Store the complete intermediate results in form of the fitted models. Only recommended for debugging purposes. 
 
-#
-# helper function for testing specific hypothesis about
-#
-# specify a population model and a zero constraint restriction
 simPowerZeroRestriction<-function(trueModel, restrictions, N, repetitions, keepModels=F, 
                                   steps=NULL, cluster=NULL)
 {

@@ -1,4 +1,16 @@
-
+#' Simulate Data
+#' @description Simulating data from a SEM by drawing from the multivariate normal as described by the model covariance matrix and means vector.
+#'
+#' 
+#' @examples
+#' simulateData(
+#'	toOpenMx(lgcm(slope.variance=1, 
+#'	intercept.variance=2, timepoints=0:8), N=100))
+#'
+#'@param model An OpenMx model.
+#'@param N Desired sample size.
+#' @returns A \code{data.frame} with columns relating to the observed variables of the \code{model} and rows to simulated observations.
+#' @author Andreas M. Brandmaier
 simulateData <- function(model, N, format="wide") {
   
 if (inherits(model, "semper")) {
