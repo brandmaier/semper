@@ -1,3 +1,5 @@
+#'
+#' @export
 
 sampleSize <- function(psim, power=0.8, alpha=0.05)
 {

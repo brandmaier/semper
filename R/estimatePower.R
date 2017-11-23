@@ -17,6 +17,9 @@
 #' @aliases sampleSize
 #'
 #' @seealso \code{\link{simPower}}
+#'
+#' @export
+
 power <- function(psim, alpha=.05, exclude=c())
 {
   selector <- rep(TRUE,length(psim$p))

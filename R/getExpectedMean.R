@@ -1,3 +1,6 @@
+#'
+#' @export
+
 getExpectedMean<- function(model) {
   
   

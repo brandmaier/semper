@@ -1,3 +1,5 @@
+#'
+#' @export
 
 modelPredictedCov <- function(model, type="raw") {
   run <- model

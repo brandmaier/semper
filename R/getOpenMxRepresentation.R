@@ -5,6 +5,9 @@
 #' @adescription  This function creates a lgcm object to be run in OpenMx
 #'
 #' @params generic.model A sempower model abstraction
+#'
+#' @export
+
 toOpenMx <- function(generic.model, name=NULL)
 {
   manifest.varname <- "X"

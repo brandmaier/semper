@@ -5,6 +5,8 @@
 #' @param residual.variance Residual variance or inverse of the precision of measurement
 #' @param slope.variance Individual differences in slopes
 #' @param intercept.variance Individual differences in intercept
+#'
+#' @export
 
 lgcm <- function(timepoints=0, intercept.variance=0, slope.variance=0,
                  residual.variance=0, 
@@ -36,6 +38,9 @@ lgcm <- function(timepoints=0, intercept.variance=0, slope.variance=0,
   return(lgcm)
 }
 
+#'
+#' @export
+
 effectiveError <- function(lgcm)
 {
   if (!inherits(lgcm,"lgcm")) {
@@ -59,10 +64,16 @@ effectiveError <- function(lgcm)
 #' @description A set of indicators for study design efficiency. Effective error, Effective Curve Reliability, and Growth Rate Reliability.
 #' @param lgcm A \code{lgcm} object representing a linear latent grwoth curve model
 #' @aliases grr effectiveError
+#'
+#' @export
+
 ecr <- function(lgcm) 
 {
   return (lgcm$slope.variance / (lgcm$slope.variance+effective.error(lgcm)))
 }
+
+#'
+#' @export
 
 grr <- function(lgcm) 
 {

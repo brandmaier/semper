@@ -11,6 +11,9 @@
 #'@param N Desired sample size.
 #' @returns A \code{data.frame} with columns relating to the observed variables of the \code{model} and rows to simulated observations.
 #' @author Andreas M. Brandmaier
+#'
+#' @export
+
 simulateData <- function(model, N, format="wide") {
   
 if (inherits(model, "semper")) {

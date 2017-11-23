@@ -6,6 +6,8 @@
 #
 #return(eff.err)
 #}
+#'
+#' @export
 
 
 powerFromError <- function(lgcm, alpha=.05){
@@ -23,6 +25,8 @@ power = 1-pchisq(crit, df=1, ncp=lambda)
 
 return(power)
 }
+#'
+#' @export
 
 powerFromError2df <- function(lgcm, alpha=.05) {
   
@@ -34,6 +38,8 @@ powerFromError2df <- function(lgcm, alpha=.05) {
   
   return(power)
 }
+#'
+#' @export
 
 ncp2df <- function(lgcm)
 {

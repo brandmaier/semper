@@ -6,6 +6,8 @@
 #' @param N Sample size
 #' @param repetitions The number of Monte-Carlo-trials.
 #' @param keepModels Store the complete intermediate results in form of the fitted models. Only recommended for debugging purposes. 
+#'
+#' @export
 
 simPowerZeroRestriction<-function(trueModel, restrictions, N, repetitions, keepModels=F, 
                                   steps=NULL, cluster=NULL)

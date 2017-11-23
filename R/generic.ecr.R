@@ -16,6 +16,8 @@ compute.numeric <- function(chiByN) {
 #
 # generic ECR
 #
+#'
+#' @export
 
 ecr.generic <- function(model, constraints="slope.variance") {
   
@@ -60,6 +62,9 @@ effective.error.from.ecr<-function(abs.effect, ecr.value)
   abs.effect <- abs(abs.effect)
   return( abs.effect*(1/ecr.value-1))
 }
+
+#'
+#' @export
 
 effectsize <- function(model, constraints="slope.variance") {
   

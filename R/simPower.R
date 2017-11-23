@@ -44,7 +44,8 @@
 #' chosen sample size. Alternatively, the required sample size can be
 #' calculated for a chosen power.
 #' A simplified wrapper for the simulation of zero constraints is \code{\link{simPowerZeroRestriction}}.
-
+#'
+#' @export
 
 
 

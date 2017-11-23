@@ -1,3 +1,6 @@
+#'
+#' @export
+
 bivariateLgcm<-function(lgcm.x, lgcm.y, slope.x.slope.y.covariance=0, icept.x.slope.y.covariance=0,
                          icept.y.slope.x.covariance =0, icept.x.icept.y.covariance=0,
                          latent.correlations=FALSE)

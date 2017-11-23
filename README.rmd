@@ -1,0 +1,44 @@
+semper
+======
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE
+)
+```
+
+### What is this?
+
+### Install
+
+From CRAN (though, paper is not yet on CRAN)
+
+```{r eval=FALSE}
+install.packages("semper")
+```
+
+Devel version
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("brandmaier/semper")
+```
+
+```{r}
+library("semper")
+```
+
+### Examples
+
+```{r}
+require("semper")
+model <- lgcm(timepoints = 0:4,
+ intercept.variance = 10,               
+ slope.variance = 1,residual.variance = 50)
+
+cat("ECR: ", ecr(model),"\n") 
+cat("Effective error: ", 
+effectiveError(model),"\n") 
+cat("GRR: ", grr(model))
+```

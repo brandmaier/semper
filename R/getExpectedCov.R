@@ -1,6 +1,8 @@
 #
 # obtain expected covariance matrix from a sempower model
 #
+#'
+#' @export
 
 getExpectedCovariance <- function(model) {
 

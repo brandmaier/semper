@@ -1,3 +1,5 @@
+#' @export
+
 simPowerSpecificVarianceTest <- function(model, repetitions=500, sample.size=NULL, full.output=FALSE) {
 
  trueModel <- getOpenMxRepresentation(model)

@@ -1,3 +1,6 @@
+#'
+#' @export
+
 qgcm <- function(timepoints=0, intercept.variance=0, slope.variance=0, quadratic.variance=0,
                  residual.variance=0, 
                  intercept.slope.covariance = 0, 

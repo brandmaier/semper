@@ -1,3 +1,6 @@
+#'
+#' @export
+
 simPowerWaldTest <- function(lmodel, repetitions=1000, paramName="slopevariance", sample.size=NULL) {
   
   cnt <- 0
