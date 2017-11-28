@@ -6,6 +6,8 @@
 #' @param N Sample size
 #' @param repetitions The number of Monte-Carlo-trials.
 #' @param keepModels Store the complete intermediate results in form of the fitted models. Only recommended for debugging purposes. 
+#' @param steps A list of parameter names and values for simulating across multiple conditions
+#' @param cluster A cluster object for parallel execution
 #'
 #' @export
 

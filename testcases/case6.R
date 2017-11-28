@@ -1,4 +1,4 @@
-require("sempower")
+require("semper")
 #
 # test
 model <- sempower::lgcm(timepoints=c(0,1,2,3),intercept.variance = 1,

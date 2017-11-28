@@ -13,7 +13,7 @@
 # using parallel execution with Snowfall
 #
 require("OpenMx")
-require("sempower")
+require("semper")
 
 manifests<-c("x1","x2","x3","x4")
 latents<-c("icept","slope")

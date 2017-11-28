@@ -1,4 +1,7 @@
 
+# matrix trace
+mtr <- function(m) {sum(diag(m))}
+
 #
 # helper for numeric computation
 #
@@ -14,8 +17,10 @@ compute.numeric <- function(chiByN) {
 }
 
 #
-# generic ECR
-#
+#' generic Effective Curve Reliability (ECR)
+#'
+#' @param model A semper model
+#' @param constraints A list of parameter names assumed to be zero in the null hypothesis
 #'
 #' @export
 
@@ -39,13 +44,11 @@ ecr.generic <- function(model, constraints="slope.variance") {
   d1 <- dataMat
   
   if (all(d1==d0)) stop("Error! Expected covariance matrices are identical!")
-  
-  #dchi <- log(det(d0))+psych::tr(solve(d0)%*%d1)+log(2*pi)
-  #dchi <- log(det(d1))+psych::tr(solve(d1)%*%d0)
+ 
   
   
   # do not multiply by N because this is chi^2/N
-  dchi <- (log(det(d0))+psych::tr(solve(d0)%*%d1)-log(det(d1))-dim(d0)[1])
+  dchi <- (log(det(d0))+mtr(solve(d0)%*%d1)-log(det(d1))-dim(d0)[1])
   
   ecr.new <- compute.numeric(dchi)
   
@@ -89,12 +92,12 @@ effectsize <- function(model, constraints="slope.variance") {
   
   if (all(d1==d0)) stop("Error! Expected covariance matrices are identical!")
   
-  #dchi <- log(det(d0))+psych::tr(solve(d0)%*%d1)+log(2*pi)
-  #dchi <- log(det(d1))+psych::tr(solve(d1)%*%d0)
+  #dchi <- log(det(d0))+mtr(solve(d0)%*%d1)+log(2*pi)
+  #dchi <- log(det(d1))+mtr(solve(d1)%*%d0)
   
   
   # do not multiply by N because this is chi^2/N
-  dchi <- (log(det(d0))+psych::tr(solve(d0)%*%d1)-log(det(d1))-dim(d0)[1])
+  dchi <- (log(det(d0))+mtr(solve(d0)%*%d1)-log(det(d1))-dim(d0)[1])
   
 #  dn <- 1/(1+1/dchi)
   

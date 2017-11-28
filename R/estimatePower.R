@@ -9,6 +9,7 @@
 #' @param psim A simPower result object.
 #' @param alpha Alpha level for power estimation
 #' @param power Target power
+#' @exclude Vector of exclusion criteria. If "negstat" then negative values of statistics are excluded.
 #'
 #' @return Return either the sample size if power was set with \code{estimatePower} or the power if sample size was fixed with \code{estimateSampleSize}.
 #'

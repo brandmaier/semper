@@ -1,3 +1,10 @@
+importFrom("graphics", "abline", "hist", "lines", "plot", "text")
+importFrom("stats", "binomial", "glm", "optimise", "pchisq", "pnorm",
+             "qchisq", "qnorm", "rnorm", "runif")
+import("OpenMx")
+import("parallel")
+import("MASS")
+
 export("simulateData")
 export("simPower")
 export("simPowerZeroRestriction")

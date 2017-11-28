@@ -5,7 +5,9 @@
 #' @param residual.variance Residual variance or inverse of the precision of measurement
 #' @param slope.variance Individual differences in slopes
 #' @param intercept.variance Individual differences in intercept
-#'
+#' @param intercept.slope.covariance The covariance between latent intercept and latent slope
+#' @param intercept.mean Mean of the latent intercept (average score at intercept)
+#' @param slope.mean Mean of the latent slope (average linear rate of change)
 #' @export
 
 lgcm <- function(timepoints=0, intercept.variance=0, slope.variance=0,
@@ -38,7 +40,9 @@ lgcm <- function(timepoints=0, intercept.variance=0, slope.variance=0,
   return(lgcm)
 }
 
-#'
+#' Compute effective error from a LGCM
+#' @param lgcm A \code{lgcm} object.
+#' 
 #' @export
 
 effectiveError <- function(lgcm)

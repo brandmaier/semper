@@ -1,3 +1,9 @@
+#' Quadratic Growth Curve Model
+#' @params timepoints vector of time points of measurements
+#' @params intercept.variance Variance of intercept
+#' @params slope.variance Variance of slope
+#' @params residual.variance Residual error variance
+#' @params sample.size Sample size
 #'
 #' @export
 

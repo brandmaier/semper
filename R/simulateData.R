@@ -9,6 +9,7 @@
 #'
 #'@param model An OpenMx model.
 #'@param N Desired sample size.
+#'@param format Either "long" or "wide".
 #' @returns A \code{data.frame} with columns relating to the observed variables of the \code{model} and rows to simulated observations.
 #' @author Andreas M. Brandmaier
 #'

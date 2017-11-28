@@ -17,12 +17,16 @@
 #' @param h1Model Model representing the alternative hypothesis
 #' @param populationModel}{True population model used to generate data from.
 #' @param N Sample size. For RAM models, this is either (1) a scalar representing a fixed sample size, (2) a list with two items representing a minimum and a maximum for randomly drawn sample sizes (when sample size is the dependent variable), or (3) for multiple group models, this is a named list of sample sizes for the sub models where the names must match the submodels' names.
+#' @param repetitions Number of Monte Carlo trials
+#' @param keepModels Boolean. Keep models from all trials for later inspection?
+#' @param simfunc Function to simulate data. Default is based on multivariate normal distribution.
+#' @param simargs Extra arguments to be passed to the method for simulating data.
 #'
-#'@parampsim SimPower result object
-#'@paramprng Range for plotting p values
-#'@paramtarget.power If not null, draw a line to indicate sample size for a specified target power in a power curve plot.
-#'@paramlw line width for power curve
-#'@paramlty line type for power curve
+#'@param psim SimPower result object
+#'@param prng Range for plotting p values
+#'@param target.power If not null, draw a line to indicate sample size for a specified target power in a power curve plot.
+#'@param lw line width for power curve
+#'@param lty line type for power curve
 #'
 #' @seealso \code{\link{simPowerZeroRestriction}}
 #'

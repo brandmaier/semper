@@ -3,7 +3,7 @@
 # of equal sample size
 #
 require("OpenMx")
-require("sempower")
+require("semper")
 
 # sample size
 N <- 50
