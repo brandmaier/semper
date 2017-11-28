@@ -30,3 +30,5 @@ check: build
 clean:
 	cd ..;\
 	$(RM) -r $(PKGNAME).Rcheck/
+
+doc: rd readme

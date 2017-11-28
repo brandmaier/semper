@@ -1,6 +1,6 @@
 #' Estimate Power or Sample Size from a simulation
 #'
-#' @examples:
+#' @examples 
 #'
 #' power(psim, alpha=.05)
 #' sampleSize(psim, power=0.8)

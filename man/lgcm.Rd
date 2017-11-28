@@ -17,7 +17,13 @@ lgcm(timepoints = 0, intercept.variance = 0, slope.variance = 0,
 
 \item{residual.variance}{Residual variance or inverse of the precision of measurement}
 
+\item{intercept.slope.covariance}{The covariance between latent intercept and latent slope}
+
 \item{sample.size}{Number of cases}
+
+\item{intercept.mean}{Mean of the latent intercept (average score at intercept)}
+
+\item{slope.mean}{Mean of the latent slope (average linear rate of change)}
 }
 \description{
 This function creates a lgcm object representing a linear latent growth curve model

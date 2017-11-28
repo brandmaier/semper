@@ -10,6 +10,8 @@ simulateData(model, N, format = "wide")
 \item{model}{An OpenMx model.}
 
 \item{N}{Desired sample size.}
+
+\item{format}{Either "long" or "wide".}
 }
 \description{
 Simulating data from a SEM by drawing from the multivariate normal as described by the model covariance matrix and means vector.

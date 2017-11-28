@@ -67,7 +67,7 @@ simPowerZeroRestrictionDelegate<-function(trueModel, restrictions, N, repetition
     #sfClusterEval(require("OpenMx"))
     #sfClusterEval(require("sempower"))
     
-    snowfall.cpus <- length(cl)
+    snowfall.cpus <- length(cluster)  
     
     each.rep <- ceiling(repetitions / snowfall.cpus)
     
@@ -77,7 +77,7 @@ simPowerZeroRestrictionDelegate<-function(trueModel, restrictions, N, repetition
 
     t1 <- proc.time()
     
-    results <- parLapply( X=x, fun=sfWrapSimPower, 
+    results <- parLapply(cl=cluster, X=x, fun=sfWrapSimPower, 
                          h0Model, h1Model, true.model, 
                          N, keep.models)
     t2 <- proc.time()    

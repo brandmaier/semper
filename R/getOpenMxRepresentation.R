@@ -5,6 +5,7 @@
 #' @adescription  This function creates a lgcm object to be run in OpenMx
 #'
 #' @params generic.model A sempower model abstraction
+#' @params name Model name
 #'
 #' @export
 
@@ -22,11 +23,11 @@ toOpenMx <- function(generic.model, name=NULL)
     manifests <- paste(manifest.varname, 1:length(lgcm$timepoints),sep="")
     latents <- c("intercept","slope")
     
-    p1 <- mxPath(from=latents[1], to=manifests, free=FALSE, value=1)
-    p2 <- mxPath(from=latents[2], to=manifests, free=FALSE, value= lgcm$timepoints)
+    p1 <- mxPath(from=latents[1], to=manifests, free=FALSE, values=1)
+    p2 <- mxPath(from=latents[2], to=manifests, free=FALSE, values= lgcm$timepoints)
     
-    p3 <- mxPath(from=manifests, to=manifests, free = TRUE, value=lgcm$residual.variance,
-                 label="residualvariance", arrows=2)
+    p3 <- mxPath(from=manifests, to=manifests, free = TRUE, values=lgcm$residual.variance,
+                 labels="residualvariance", arrows=2)
     
     p4 <- mxPath(from=c(latents[1],latents[1],latents[2]),
                  to = c(latents[1],latents[2],latents[2]), free = TRUE, arrows=2,values=
@@ -34,9 +35,9 @@ toOpenMx <- function(generic.model, name=NULL)
                      lgcm$slope.variance),connect = "unique.pairs",
                  labels=c("interceptvariance","interceptslopecovariance","slopevariance"))
     
-    p5 <- mxPath(from="one",to=manifests,value=0,free=FALSE)
+    p5 <- mxPath(from="one",to=manifests,values=0,free=FALSE)
     
-    p6 <- mxPath(from="one",to=latents,value=c(lgcm$intercept.mean, lgcm$slope.mean),free=TRUE,
+    p6 <- mxPath(from="one",to=latents,values=c(lgcm$intercept.mean, lgcm$slope.mean),free=TRUE,
                  labels=c("interceptmean","slopemean"))
     
     lgcmModel <- mxModel(name,
@@ -60,13 +61,13 @@ toOpenMx <- function(generic.model, name=NULL)
     manifests <- paste(manifest.varname, 1:length(qgcm$timepoints),sep="")
     latents <- c("intercept","slope","quadratic")
     
-    p1 <- mxPath(from=latents[1], to=manifests, free=FALSE, value=1)
-    p2 <- mxPath(from=latents[2], to=manifests, free=FALSE, value= qgcm$timepoints)
+    p1 <- mxPath(from=latents[1], to=manifests, free=FALSE, values=1)
+    p2 <- mxPath(from=latents[2], to=manifests, free=FALSE, values= qgcm$timepoints)
     
-    p7 <- mxPath(from=latents[3], to=manifests, free=FALSE, value= qgcm$timepoints^2)
+    p7 <- mxPath(from=latents[3], to=manifests, free=FALSE, values= qgcm$timepoints^2)
     
-    p3 <- mxPath(from=manifests, to=manifests, free = TRUE, value=qgcm$residual.variance,
-                 label="residualvariance", arrows=2)
+    p3 <- mxPath(from=manifests, to=manifests, free = TRUE, values=qgcm$residual.variance,
+                 labels="residualvariance", arrows=2)
     
     p4 <- mxPath(from=c(latents[1],latents[1],latents[2],latents[1],latents[2],latents[3]),
                  to = c(latents[1],latents[2],latents[2],latents[3],latents[3],latents[3]), free = TRUE, arrows=2,values=
@@ -76,9 +77,9 @@ toOpenMx <- function(generic.model, name=NULL)
                  labels=c("interceptvariance","interceptslopecovariance","slopevariance",
                           "interceptquadraticcovariance","slopequadraticcovariance","quadraticvariance"))
     
-    p5 <- mxPath(from="one",to=manifests,value=0,free=FALSE)
+    p5 <- mxPath(from="one",to=manifests,values=0,free=FALSE)
     
-    p6 <- mxPath(from="one",to=latents,value=
+    p6 <- mxPath(from="one",to=latents,values=
                  c(qgcm$intercept.mean, qgcm$slope.mean,qgcm$quadratic.mean),free=TRUE,
                  labels=c("interceptmean","slopemean","quadraticmean"))
     
@@ -112,11 +113,11 @@ toOpenMx <- function(generic.model, name=NULL)
       latents <- c(latents, latentsx.std, latentsy.std)
       
       
-      p1x <- mxPath(from=latentsx[1], to=manifestsx, free=FALSE, value=1)
-      p2x <- mxPath(from=latentsx[2], to=manifestsx, free=FALSE, value= lgcm.x$timepoints)
+      p1x <- mxPath(from=latentsx[1], to=manifestsx, free=FALSE, values=1)
+      p2x <- mxPath(from=latentsx[2], to=manifestsx, free=FALSE, values= lgcm.x$timepoints)
       
-      p3x <- mxPath(from=manifestsx, to=manifestsx, free = TRUE, value=lgcm.x$residual.variance,
-                    label="residualvariancex", arrows=2)
+      p3x <- mxPath(from=manifestsx, to=manifestsx, free = TRUE, values=lgcm.x$residual.variance,
+                    labels="residualvariancex", arrows=2)
    
       # fixed variances
       p4x <- mxPath(from=c(latentsx.std[1],latentsx.std[2]), to=c(latentsx.std[1],latentsx.std[2]), free=FALSE,
@@ -133,15 +134,15 @@ toOpenMx <- function(generic.model, name=NULL)
   #                      lgcm.x$slope.variance),connect = "unique.pairs",
   #                  labels=c("interceptvariancex","interceptslopecovariancex","slopevariancex"))
       
-      p5x <- mxPath(from="one",to=manifestsx,value=0,free=FALSE)
+      p5x <- mxPath(from="one",to=manifestsx,values=0,free=FALSE)
       
       # --
       
-      p1y <- mxPath(from=latentsy[1], to=manifestsy, free=FALSE, value=1)
-      p2y <- mxPath(from=latentsy[2], to=manifestsy, free=FALSE, value= lgcm.y$timepoints)
+      p1y <- mxPath(from=latentsy[1], to=manifestsy, free=FALSE, values=1)
+      p2y <- mxPath(from=latentsy[2], to=manifestsy, free=FALSE, values= lgcm.y$timepoints)
       
-      p3y <- mxPath(from=manifestsy, to=manifestsy, free = TRUE, value=lgcm.y$residual.variance,
-                    label="residualvariancey", arrows=2)
+      p3y <- mxPath(from=manifestsy, to=manifestsy, free = TRUE, values=lgcm.y$residual.variance,
+                    labels="residualvariancey", arrows=2)
       
 #      p4y <- mxPath(from=c(latentsy[1],latentsy[1],latentsy[2]),
 #                    to = c(latentsy[1],latentsy[2],latentsy[2]), free = TRUE, arrows=2,values=
@@ -157,7 +158,7 @@ toOpenMx <- function(generic.model, name=NULL)
                                             sqrt(lgcm.y$slope.variance)),
                                    connect="single")      
       
-      p5y <- mxPath(from="one",to=manifestsy,value=0,free=FALSE)
+      p5y <- mxPath(from="one",to=manifestsy,values=0,free=FALSE)
       
       ## --
       
@@ -175,12 +176,12 @@ toOpenMx <- function(generic.model, name=NULL)
                      )
       
       p2xy <- mxPath(from=latentsx.std[1],to=latentsx.std[2],arrows=2, labels=c("interceptslopecorrelationx"),
-                     value=lgcm.x$intercept.slope.covariance /
+                     values=lgcm.x$intercept.slope.covariance /
         (sqrt(lgcm.x$slope.variance)*sqrt(lgcm.x$intercept.variance))
       )
       
       p3xy <- mxPath(from=latentsy.std[1],to=latentsy.std[2],arrows=2, labels=c("interceptslopecorrelationy"),
-                     value=lgcm.y$intercept.slope.covariance /
+                     values=lgcm.y$intercept.slope.covariance /
         (sqrt(lgcm.y$slope.variance)*sqrt(lgcm.y$intercept.variance))
       )
       
@@ -212,11 +213,11 @@ toOpenMx <- function(generic.model, name=NULL)
 
 
         
-    p1x <- mxPath(from=latentsx[1], to=manifestsx, free=FALSE, value=1)
-    p2x <- mxPath(from=latentsx[2], to=manifestsx, free=FALSE, value= lgcm.x$timepoints)
+    p1x <- mxPath(from=latentsx[1], to=manifestsx, free=FALSE, values=1)
+    p2x <- mxPath(from=latentsx[2], to=manifestsx, free=FALSE, values= lgcm.x$timepoints)
     
-    p3x <- mxPath(from=manifestsx, to=manifestsx, free = TRUE, value=lgcm.x$residual.variance,
-                 label="residualerrorx", arrows=2)
+    p3x <- mxPath(from=manifestsx, to=manifestsx, free = TRUE, values=lgcm.x$residual.variance,
+                 labels="residualerrorx", arrows=2)
     
     p4x <- mxPath(from=c(latentsx[1],latentsx[1],latentsx[2]),
                  to = c(latentsx[1],latentsx[2],latentsx[2]), free = TRUE, arrows=2,values=
@@ -224,15 +225,15 @@ toOpenMx <- function(generic.model, name=NULL)
                      lgcm.x$slope.variance),connect = "unique.pairs",
                  labels=c("interceptvariancex","interceptslopecovariancex","slopevariancex"))
     
-    p5x <- mxPath(from="one",to=manifestsx,value=0,free=FALSE)
+    p5x <- mxPath(from="one",to=manifestsx,values=0,free=FALSE)
     
     # --
     
-    p1y <- mxPath(from=latentsy[1], to=manifestsy, free=FALSE, value=1)
-    p2y <- mxPath(from=latentsy[2], to=manifestsy, free=FALSE, value= lgcm.y$timepoints)
+    p1y <- mxPath(from=latentsy[1], to=manifestsy, free=FALSE, values=1)
+    p2y <- mxPath(from=latentsy[2], to=manifestsy, free=FALSE, values= lgcm.y$timepoints)
     
-    p3y <- mxPath(from=manifestsy, to=manifestsy, free = TRUE, value=lgcm.y$residual.variance,
-                  label="residualerrory", arrows=2)
+    p3y <- mxPath(from=manifestsy, to=manifestsy, free = TRUE, values=lgcm.y$residual.variance,
+                  labels="residualerrory", arrows=2)
     
       p4y <- mxPath(from=c(latentsy[1],latentsy[1],latentsy[2]),
                   to = c(latentsy[1],latentsy[2],latentsy[2]), free = TRUE, arrows=2,values=
@@ -241,7 +242,7 @@ toOpenMx <- function(generic.model, name=NULL)
                   labels=c("interceptvariancey","interceptslopecovariancey","slopevariancey"))
 
     
-    p5y <- mxPath(from="one",to=manifestsy,value=0,free=FALSE)
+    p5y <- mxPath(from="one",to=manifestsy,values=0,free=FALSE)
     
     ## --
     

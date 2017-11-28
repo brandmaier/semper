@@ -73,7 +73,7 @@ simPower <- function(h0Model,h1Model,
 		
 		if (!is.list(N.range)) {
 			warning("N.range must be a named list!")
-			return(null);
+			return(NULL);
 		}
 		
 		N.names <- names(N.range)

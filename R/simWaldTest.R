@@ -1,4 +1,8 @@
-#'
+#' Simulate power of the Wald test
+#' @param lmodel a \code{semper} model
+#' @param repetitions Number of Monte Carlo trials
+#' @param A parameter name assumed to be zero in the null hypothesis
+#' @param sample.size The sample size 
 #' @export
 
 simPowerWaldTest <- function(lmodel, repetitions=1000, paramName="slopevariance", sample.size=NULL) {

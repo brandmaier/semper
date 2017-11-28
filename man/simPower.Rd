@@ -17,7 +17,25 @@ simPower(h0Model, h1Model, populationModel, N = c(20, 100),
 
 \item{N}{Sample size. For RAM models, this is either (1) a scalar representing a fixed sample size, (2) a list with two items representing a minimum and a maximum for randomly drawn sample sizes (when sample size is the dependent variable), or (3) for multiple group models, this is a named list of sample sizes for the sub models where the names must match the submodels' names.}
 
+\item{repetitions}{Number of Monte Carlo trials}
+
+\item{keepModels}{Boolean. Keep models from all trials for later inspection?}
+
+\item{simfunc}{Function to simulate data. Default is based on multivariate normal distribution.}
+
+\item{simargs}{Extra arguments to be passed to the method for simulating data.}
+
 \item{populationModel}{True}{population model used to generate data from.}
+
+\item{psim}{SimPower result object}
+
+\item{prng}{Range for plotting p values}
+
+\item{target.power}{If not null, draw a line to indicate sample size for a specified target power in a power curve plot.}
+
+\item{lw}{line width for power curve}
+
+\item{lty}{line type for power curve}
 }
 \description{
 Power simulation of a likelihood ratio test between two

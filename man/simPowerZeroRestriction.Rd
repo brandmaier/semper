@@ -17,6 +17,10 @@ simPowerZeroRestriction(trueModel, restrictions, N, repetitions,
 \item{repetitions}{The number of Monte-Carlo-trials.}
 
 \item{keepModels}{Store the complete intermediate results in form of the fitted models. Only recommended for debugging purposes.}
+
+\item{steps}{A list of parameter names and values for simulating across multiple conditions}
+
+\item{cluster}{A cluster object for parallel execution}
 }
 \description{
 Monte-Carlo-simulate power for a given model to reject a null hypothesis involving one or more zero-constraints.

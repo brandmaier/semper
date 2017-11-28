@@ -1,9 +1,9 @@
 
-plot.simPower <- function(psim, prng=seq(0.4,0.95,0.05), target.power=NULL, lw=2, lty=1,
+plot.simPower <- function(x, prng=seq(0.4,0.95,0.05), target.power=NULL, lw=2, lty=1,
                            xlab="Sample Size", ylab="Statistical Power",
                            main="Monte Carlo Power Simulation", add=F, ...)
 {
-  
+	psim <- x
   if (psim$simulation.type=="power") {
     
     pow <- power(psim)

@@ -28,8 +28,10 @@ export("powerFromError2df")
 #export("getOpenMxRepresentation")
 export("toOpenMx")
 
-export("plot.simPower")
-export("print.simPower")
+#export("plot.simPower")
+#export("print.simPower")
+S3method("plot","simPower")
+S3method("print","simPower")
 
 export("icc2")
 
