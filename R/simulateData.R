@@ -15,7 +15,7 @@
 #'
 #' @export
 
-simulateData <- function(model, N, format="wide") {
+simulateData <- function(model, N, format="wide", seed=NULL) {
   
 if (inherits(model, "semper")) {
   model <- toOpenMx(model)
@@ -36,7 +36,11 @@ fit <- mxRun(run,useOptimizer=F,silent=T)
 cov <- attr(fit$output$algebras[[1]],"expCov")
 mean <- attr(fit$output$algebras[[1]],"expMean")
 
-data <- mvrnorm(n=N, mu=mean, Sigma=cov)
+if (!is.null(seed)) {
+	data <- R.utils::withSeed(mvrnorm(n=N, mu=mean, Sigma=cov),seed=seed)
+} else {
+	data <- mvrnorm(n=N, mu=mean, Sigma=cov)
+}
 
 dimnames(data)[2] <-  dimnames(fit@data@observed)[2]
 

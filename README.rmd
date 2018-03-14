@@ -42,3 +42,10 @@ cat("Effective error: ",
 effectiveError(model),"\n") 
 cat("GRR: ", grr(model))
 ```
+
+
+![](./inst/flag_yellow_low.jpg) | ABC
+
+This project has received funding from the European Union’s 
+Horizon 2020 research and innovation programme under grant 
+agreement No [number].

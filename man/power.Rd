@@ -21,7 +21,6 @@ Return either the sample size if power was set with \code{estimatePower} or the 
 Estimate Power or Sample Size from a simulation
 }
 \examples{
-:
 
 power(psim, alpha=.05)
 sampleSize(psim, power=0.8)

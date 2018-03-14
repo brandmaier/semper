@@ -5,7 +5,8 @@
 #' @param sample.size The sample size 
 #' @export
 
-simPowerWaldTest <- function(lmodel, repetitions=1000, paramName="slopevariance", sample.size=NULL) {
+simPowerWaldTest <- function(lmodel, repetitions=1000, paramName="slopevariance", 
+                             sample.size=NULL, simfunc=simulateData) {
   
   cnt <- 0
   model <- getOpenMxRepresentation(lmodel)
@@ -30,7 +31,7 @@ simPowerWaldTest <- function(lmodel, repetitions=1000, paramName="slopevariance"
 	}
    }
 
-   simdata <- simulateData(true.model,N = N )
+   simdata <- simfunc(true.model,N )
 
    model <- mxModel(true.model, mxData(simdata,type="raw"))
    run <- mxRun(model,silent = TRUE) 
