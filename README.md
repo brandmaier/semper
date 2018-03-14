@@ -40,7 +40,7 @@ Devel version
     cat("GRR: ", grr(model))
     #> GRR:  0.1666667
 
-![](./inst/flag_yellow_low.jpg) | ABC
+<img src="./inst/flag_yellow_low.jpg" width="20%" />
 
 This project has received funding from the European Union’s Horizon 2020
-research and innovation programme under grant agreement No [number].
+research and innovation programme under grant agreement No 732592.
