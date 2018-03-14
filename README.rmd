@@ -44,8 +44,10 @@ cat("GRR: ", grr(model))
 ```
 
 
-![](./inst/flag_yellow_low.jpg) | ABC
+```{r echo=FALSE, out.width='20%'}
+knitr::include_graphics('./inst/flag_yellow_low.jpg')
+```
 
 This project has received funding from the European Union’s 
 Horizon 2020 research and innovation programme under grant 
-agreement No [number].
+agreement No 732592.
