@@ -9,7 +9,13 @@ simPowerWaldTest <- function(lmodel, repetitions=1000, paramName="slopevariance"
                              sample.size=NULL, simfunc=simulateData) {
   
   cnt <- 0
-  model <- getOpenMxRepresentation(lmodel)
+  
+  if (!inherits(lmodel,"MxRAMModel")) {
+    model <- getOpenMxRepresentation(lmodel)
+  } else {
+    model <- lmodel
+  }
+    
   true.model <- model
   zs <- rep(NA, repetitions)
   ests <- rep(NA, repetitions)
@@ -39,11 +45,13 @@ simPowerWaldTest <- function(lmodel, repetitions=1000, paramName="slopevariance"
    lzs <- sm$parameters$Estimate / sm$parameters$Std.Error
    pid <- sm$parameters$name==paramName
    z <- lzs[pid]
+   try({
    if (abs(z) > 1.96) cnt<-cnt+1
     zs[i] <- z
    ests[i] <- sm$parameters$Estimate[pid] 
    Ns[i] <- N
    ps[i] <- pnorm(q = z,lower.tail = FALSE)
+   })
   }
   xx<- list(z=zs,estimates=ests,N=Ns,simulation.type=simulation.type,p=ps, statistic.type="z")
   class(xx) <- "simPower"

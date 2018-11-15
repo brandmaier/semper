@@ -21,14 +21,22 @@
 #'
 #' @export
 
-power <- function(psim, alpha=.05, exclude=c())
-{
-  selector <- rep(TRUE,length(psim$p))
-  if ("negstat" %in% exclude) {
-	  selector <- psim$statistics>=0
-  }
 
-  success <- (psim$p[selector] <alpha)
+power<-function (psim, alpha = 0.05, exclude = c("na")) 
+{
+  if ("na" %in% exclude) {
+    psim$p <- psim$p[!is.na(psim$p)]
+    psim$z <- psim$z[!is.na(psim$p)]
+    psim$estimates <- psim$estimates[!is.na(psim$p)]
+    psim$N <- psim$N[!is.na(psim$p)]
+  } else {
+    psim$p[is.na(psim$p)]<-FALSE
+  }
   
-  return( sum(success)/sum(selector))
+  selector <- rep(TRUE, length(psim$p))
+  if ("negstat" %in% exclude) {
+    selector <- psim$statistics >= 0
+  }
+  success <- (psim$p[selector] < alpha)
+  return(sum(success)/sum(selector))
 }
