@@ -27,11 +27,11 @@ toOpenMx <- function(generic.model, name=NULL)
     p2 <- mxPath(from=latents[2], to=manifests, free=FALSE, values= lgcm$timepoints)
     
     if (length(lgcm$residual.variance)==1) {
-    p3 <- mxPath(from=manifests, to=manifests, free = TRUE, values=lgcm$residual.variance,
+      p3 <- mxPath(from=manifests, to=manifests, free = TRUE, values=lgcm$residual.variance,
                  labels="residualvariance", arrows=2)
     } else {
       p3 <- mxPath(from=manifests, to=manifests, free = TRUE, values=lgcm$residual.variance,
-                   labels=paste("residualvariance",1:length(lgcm$residual.variance)), arrows=2)      
+                   labels=paste0("residualvariance",1:length(lgcm$residual.variance)), arrows=2)      
     }
     
     p4 <- mxPath(from=c(latents[1],latents[1],latents[2]),
