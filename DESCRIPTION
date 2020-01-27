@@ -1,8 +1,8 @@
 Package: semper
 Type: Package
 Title: Structural Equation Modelong, power, effect size, and reliability
-Version: 0.3
-Date: 2019-01-27
+Version: 0.3.1
+Date: 2020-01-27
 Author: Andreas M. Brandmaier
 Authors@R: person("Andreas", "Brandmaier", role=c("aut","cre"), email="brandmaier@mpib-berlin.mpg.de", comment=c(ORCID='0000-0001-8765-6982'))
 Maintainer: Andreas M. Brandmaier <brandmaier@mpib-berlin.mpg.de>
