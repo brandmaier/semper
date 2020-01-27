@@ -1,13 +1,13 @@
 Package: semper
 Type: Package
-Title: SEMPER: S.E.M., P.ower, E.ffect size, and R.eliability
+Title: Structural Equation Modelong, power, effect size, and reliability
 Version: 0.3
-Date: 2017-07-24
+Date: 2019-01-27
 Author: Andreas M. Brandmaier
 Authors@R: person("Andreas", "Brandmaier", role=c("aut","cre"), email="brandmaier@mpib-berlin.mpg.de", comment=c(ORCID='0000-0001-8765-6982'))
 Maintainer: Andreas M. Brandmaier <brandmaier@mpib-berlin.mpg.de>
-Description: Analytical and Monte Carlo approaches for statistical power, effect
-    size, and reliability in SEM.
+Description: Asymptotic and Monte Carlo approaches for statistical power, effect
+    size, reliability, and precisio in latent variable SEM.
 License: GPL (>=3)
 Depends:
     parallel,
