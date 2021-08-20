@@ -29,13 +29,22 @@ ecr.generic <- function(model, constraints="slope.variance") {
   dataMat <- getExpectedCovariance(model)
   
   model0 <- model
-  if (!all(constraints %in% attributes(model0)$names)) stop("Not all constraints in model!")
+
+  if (inherits(model,"semper")) {  
   
+    if (!all(constraints %in% attributes(model0)$names)) stop("Not all constraints in model!")
+    
   if (is.vector(constraints)) {
     for (cn in constraints)
       model0[cn] <- 0
   } else {
     model0[constraints] <- 0
+  }
+    
+  }  else if (inherits(model,"MxRAMModel")) {
+    model0 <- omxSetParameters(model, labels=constraints, values=0)
+  } else {
+    stop("Unknown model type")
   }
   
   dataMat0 <- getExpectedCovariance(model0)
