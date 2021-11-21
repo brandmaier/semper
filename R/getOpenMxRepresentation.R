@@ -272,8 +272,8 @@ toOpenMx <- function(generic.model, name=NULL)
     } # end if (latent.correlation)
     
     } else {
-      warning("Unknown model class.")
-      return(NA)
+      stop("Unknown model class.")
+     
   }
 }
 
