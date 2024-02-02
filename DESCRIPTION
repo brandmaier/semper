@@ -12,7 +12,8 @@ License: GPL (>=3)
 Depends:
     parallel,
     MASS,
-    OpenMx
+    OpenMx,
+    lamW
 Suggests:
     plotrix,
     lattice
